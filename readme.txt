@@ -1,0 +1,70 @@
+=== Amazon Product Widget ===
+Contributors: PHPFluesterer
+Donate link: https://flattr.com/profile/phpfluesterer
+Tags: amazon, books, product, widget, asin, isbn, isbn-13
+Requires at least: 2.8
+Tested up to: 3.3.1
+Stable tag: 1.2.0
+
+This plugin provides a multi-widget, which displays a random product (like a book) from a given list of Amazon product numbers (ASIN).
+
+== Description ==
+This plugin provides a sidebar widget to display a random product from a list of ASINs or a single product. The plugin 
+makes use of the Amazon Web-Service (AWS) to retrieve detailed data of a product. The plugin supports HTML-Templates to
+display the product and makes use of a simple caching functionality. So the data is only requested once.
+
+== Installation ==
+1. Download the plugin
+2. Upload the plugin to your wp-content/plugins directory
+3. Activate the plugin
+4. Configure the plugin (Region, Associate-ID, AWS public key and AWS private key)
+5. Drag widget to a sidebar
+6. Enter "Title" and a "List" of Amazon product ASIN numbers and optional edit the HTML-template
+
+Important:
+The plugin does not work without an Amazon Associate-ID!
+If you don't have an Amazon Associate-ID, feel free to use mine - "phpfluesterer-21" (without the quotation marks). 
+Or apply here for your own: https://affiliate-program.amazon.com/gp/flex/associates/apply-login.html
+
+== Frequently Asked Questions == 
+Q: 
+I tried to install the Amazon Product Widget-Plugin and am getting the following error while trying to save configuration:
+file_get_contents() failed. Please ensure that PHP's native function file_get_contents() is allowed to read URL's
+Configuration could not be saved!
+
+A:
+The Amazon Product Widget make use of the PHP function "file_get_contents()" to read data from the Amazon API. 
+But sometimes the default PHP configuration (php.ini) does not allow to read URLs due to security reasons. 
+Change the value of "allow_url_fopen" to "1". 
+More information about this issue: http://www.php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen
+
+== Upgrade Notice ==
+-
+
+== Screenshots ==
+
+1. This screen shows an example of how the Amazon Product could be displayed in your Blog
+2. This screen shows the configuration screen of the Plugin
+3. This screen shows the configuration screen of a Widget
+
+== Changelog ==
+
+= 1.2.0 =
+* added support for Amazon China (CN) and Amazon Spain (ES)
+* added requirements-check. Now the plugin checks for example if "allow_url_open" 
+  is activated and shows a warning if the requirements are not fulfilled.
+* changed links to Amazons affiliate site(s) to SSL (https://)
+* changed label "AWS public key" to "AWS Access Key ID" and label "AWS private key" to 
+  "AWS Secret Access Key" (plugin configuration screen)
+
+= 1.1.0 =
+* fixed Amazon(r) AWS API requests to match the new standard (November 1, 2011):
+  added missing "AssociateTag"-Parameter to request
+  https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html
+
+= 1.0.0 =
+* initial release 
+
+== Support ==
+This plugin is free and I expect nothing in return. If you wish to support my programming, flattr me https://flattr.com/profile/phpfluesterer 
+or buy me a book from my amazon wishlist http://www.amazon.de/registry/wishlist/NBTGYBOFGAU. Thank you!
